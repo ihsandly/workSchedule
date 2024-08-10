@@ -24,6 +24,13 @@ class KaryawanController extends Controller
         return view('home.karyawan', ["no" => 0, "title" => "Data Karyawan", "data_karyawan" => $data, "offset" => $offset]);
     }
 
+    public function tambah()
+    {
+        return view('home.karyawan-tambah', [
+            "title" => "Tambah data karyawan",
+        ]);
+    }
+
     public function delete($id)
     {
         $karyawan = Karyawan::find($id);
