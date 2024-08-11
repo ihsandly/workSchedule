@@ -17,6 +17,7 @@ return new class extends Migration
                 table: 'karyawan',
                 indexName: 'schedule_karyawan_id'
             );
+            $table->string('posisi');
             $table->date('tanggal');
             $table->string('jam_masuk');
             $table->string('jam_pulang');

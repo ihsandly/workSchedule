@@ -4,7 +4,9 @@ use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\ScheduleController;
 use Illuminate\Support\Facades\Route;
 
+// route schedule
 Route::get('/', [ScheduleController::class, "index"]);
+Route::get('/schedules', [ScheduleController::class, "sortByDate"])->name('schedules.sortByDate');
 
 // route karyawan
 Route::get('/karyawan', [KaryawanController::class, "karyawan"])->name('karyawan');

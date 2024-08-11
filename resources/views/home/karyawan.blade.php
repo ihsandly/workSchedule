@@ -18,7 +18,9 @@
 
         {{-- tambah data --}}
         <a class="bg-blue-400 hover:bg-blue-500 transition-all duration-300 text-white px-2 py-1 rounded-lg text-sm"
-            href="{{ url('/karyawan/tambah') }}">Tambah data</a>
+            href="{{ url('/karyawan/tambah') }}">
+            Tambah data
+        </a>
 
         <div class="mt-2 overflow-auto">
             <table class="table-auto w-full">
@@ -34,7 +36,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data_karyawan as $data)
+                    @forelse ($data_karyawan as $data)
                         <tr class="odd:bg-slate-50 even:bg-slate-200">
                             <td class="text-center p-2 rounded-bl-lg">{{ $offset + $loop->iteration }}</td>
                             <td class="p-2">{{ $data->nik }}</td>
@@ -65,7 +67,11 @@
                                 </div>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td class="text-center p-2" colspan="7">data tidak ditemukan.</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
             <div class="my-4">

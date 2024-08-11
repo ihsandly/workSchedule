@@ -19,7 +19,7 @@ class KaryawanFactory extends Factory
         return [
             "nik" => fake()->numberBetween(0, 100),
             "nama_karyawan" => fake()->name(),
-            "jabatan" => fake()->sentence(rand(1, 3)),
+            "jabatan" => fake()->randomElement(['SM', 'leader', 'crew sertifikasi', 'crew']),
             "jenis_kelamin" => fake()->randomElement(['laki-laki', 'perempuan']),
             "email" => fake()->safeEmail(),
         ];
