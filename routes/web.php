@@ -1,9 +1,10 @@
 <?php
 
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\ScheduleController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [KaryawanController::class, "index"]);
+Route::get('/', [ScheduleController::class, "index"]);
 
 // route karyawan
 Route::get('/karyawan', [KaryawanController::class, "karyawan"])->name('karyawan');
