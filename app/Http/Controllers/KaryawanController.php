@@ -32,7 +32,39 @@ class KaryawanController extends Controller
         ]);
     }
 
-    public function store(Request $request) {}
+    public function store(Request $request)
+    {
+        $request->validate(
+            [
+                'nik' => 'required|unique:karyawan,nik|max_digits:16',
+                'nama_karyawan' => 'required',
+                'jabatan' => 'required',
+                'jenis_kelamin' => 'required',
+                'email' => 'required|email',
+            ],
+            [
+                'nik.required' => 'NIK wajib diisi.',
+                'nik.unique' => 'NIK sudah digunakan.',
+                'nik.max_digits' => 'NIK maksimal 16 angka.',
+                'nama_karyawan.required' => 'Nama Karyawan wajib diisi.',
+                'jabatan.required' => 'Jabatan Karyawan wajib diisi.',
+                'jenis_kelamin.required' => 'Jenis Kelamin wajib diisi.',
+                'email.required' => 'email wajib diisi.',
+                'email.email' => 'gunakan format email yang benar.',
+            ]
+        );
+
+        $data = [
+            'nik' => $request->input('nik'),
+            'nama_karyawan' => $request->input('nama_karyawan'),
+            'jabatan' => $request->input('jabatan'),
+            'jenis_kelamin' => $request->input('jenis_kelamin'),
+            'email' => $request->input('email'),
+        ];
+
+        Karyawan::create($data);
+        return redirect('/karyawan')->with('success', ' Berhasil menambahkan data baru.');
+    }
 
     public function delete($id)
     {

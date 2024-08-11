@@ -8,4 +8,5 @@ Route::get('/dashboard', [KaryawanController::class, "index"]);
 // route karyawan
 Route::get('/karyawan', [KaryawanController::class, "karyawan"])->name('karyawan');
 Route::get('/karyawan/tambah', [KaryawanController::class, "tambah"]);
+Route::post('/karyawan/tambah', [KaryawanController::class, "store"])->name('tambah_karyawan');
 Route::get('/karyawan/delete/{id}', [KaryawanController::class, "delete"]);

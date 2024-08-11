@@ -9,5 +9,5 @@ class Karyawan extends Model
 {
     use HasFactory;
     protected $table = "karyawan";
-    protected $fillable = ["nama_karyawan", "posisi"];
+    protected $fillable = ["nik", "nama_karyawan", "jabatan", "jenis_kelamin", "email"];
 }

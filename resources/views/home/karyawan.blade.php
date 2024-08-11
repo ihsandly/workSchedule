@@ -25,6 +25,7 @@
                 <thead>
                     <tr class="bg-slate-500 text-white">
                         <td class="text-center font-medium p-2 rounded-tl-lg">No</td>
+                        <td class="font-medium p-2">NIK</td>
                         <td class="font-medium p-2">Nama</td>
                         <td class="font-medium p-2">Posisi</td>
                         <td class="font-medium p-2">Jenis Kelamin</td>
@@ -35,8 +36,9 @@
                     @foreach ($data_karyawan as $data)
                         <tr class="odd:bg-white even:bg-slate-100">
                             <td class="text-center p-2 rounded-bl-lg">{{ $offset + $loop->iteration }}</td>
+                            <td class="p-2">{{ $data->nik }}</td>
                             <td class="p-2">{{ $data->nama_karyawan }}</td>
-                            <td class="p-2">{{ $data->posisi }}</td>
+                            <td class="p-2">{{ $data->jabatan }}</td>
                             <td class="p-2">{{ $data->jenis_kelamin }}</td>
                             <td class="p-2 rounded-br-lg">
                                 <div class="flex justify-start items-center gap-1.5 w-full">
