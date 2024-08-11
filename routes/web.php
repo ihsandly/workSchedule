@@ -3,7 +3,7 @@
 use App\Http\Controllers\KaryawanController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/dashboard', [KaryawanController::class, "index"]);
+Route::get('/', [KaryawanController::class, "index"]);
 
 // route karyawan
 Route::get('/karyawan', [KaryawanController::class, "karyawan"])->name('karyawan');

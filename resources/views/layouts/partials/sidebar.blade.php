@@ -2,7 +2,7 @@
     <div class="relative h-full flex flex-col mx-3 my-2 space-y-1.5">
         <h1 class="mb-2 font-medium px-1.5">Work Schedule</h1>
         <a class="hover:bg-slate-300 transtion-all duration-300 px-1.5 py-1 rounded-lg flex items-center gap-x-1.5"
-            href="{{ url('/dashboard') }}">
+            href="{{ url('/') }}">
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-4">
