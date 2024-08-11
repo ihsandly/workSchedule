@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Karyawan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class ScheduleFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            "karyawan_id" => Karyawan::factory(),
+            "tanggal" => fake()->date(),
+            "jam_masuk" => fake()->randomElement(['12', '09', '15', '23', '07', '17' . 'off']),
+            "jam_pulang" => fake()->randomElement(['17', '23', '13', '07', '15', '20', '18', 'off']),
         ];
     }
 }
