@@ -16,7 +16,7 @@ class KaryawanController extends Controller
     {
         // Ambil data dengan paginasi
         $itemsPerPage = 10;
-        $data = Karyawan::paginate($itemsPerPage);
+        $data = Karyawan::latest()->paginate($itemsPerPage);
 
         // Hitung offset untuk halaman saat ini
         $currentPage = $data->currentPage();
@@ -64,6 +64,53 @@ class KaryawanController extends Controller
 
         Karyawan::create($data);
         return redirect('/karyawan')->with('success', ' Berhasil menambahkan data baru.');
+    }
+
+    public function edit($id)
+    {
+        $data = Karyawan::where('id', $id)->first();
+        return view('home.karyawan-edit')->with('data', $data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $nikLama = Karyawan::where('id', $id)->first();
+        if ($nikLama->nik == $request->input('nik')) {
+            $ruleNik = 'required';
+        } else {
+            $ruleNik = 'required|unique:karyawan,nik|max_digits:16';
+        }
+
+        $request->validate(
+            [
+                'nik' => $ruleNik,
+                'nama_karyawan' => 'required',
+                'jabatan' => 'required',
+                'jenis_kelamin' => 'required',
+                'email' => 'required|email',
+            ],
+            [
+                'nik.required' => 'NIK wajib diisi.',
+                'nik.unique' => 'NIK sudah digunakan.',
+                'nik.max_digits' => 'NIK maksimal 16 angka.',
+                'nama_karyawan.required' => 'Nama Karyawan wajib diisi.',
+                'jabatan.required' => 'Jabatan Karyawan wajib diisi.',
+                'jenis_kelamin.required' => 'Jenis Kelamin wajib diisi.',
+                'email.required' => 'email wajib diisi.',
+                'email.email' => 'gunakan format email yang benar.',
+            ]
+        );
+
+        $data = [
+            'nik' => $request->input('nik'),
+            'nama_karyawan' => $request->input('nama_karyawan'),
+            'jabatan' => $request->input('jabatan'),
+            'jenis_kelamin' => $request->input('jenis_kelamin'),
+            'email' => $request->input('email'),
+        ];
+
+        Karyawan::where('id', $id)->update($data);
+        return redirect('/karyawan')->with('success', ' Berhasil mengubah data.');
     }
 
     public function delete($id)

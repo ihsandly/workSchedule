@@ -34,7 +34,7 @@
                 </thead>
                 <tbody>
                     @foreach ($data_karyawan as $data)
-                        <tr class="odd:bg-white even:bg-slate-100">
+                        <tr class="odd:bg-slate-50 even:bg-slate-200">
                             <td class="text-center p-2 rounded-bl-lg">{{ $offset + $loop->iteration }}</td>
                             <td class="p-2">{{ $data->nik }}</td>
                             <td class="p-2">{{ $data->nama_karyawan }}</td>
@@ -43,7 +43,7 @@
                             <td class="p-2 rounded-br-lg">
                                 <div class="flex justify-start items-center gap-1.5 w-full">
                                     <a class="bg-amber-200 hover:bg-amber-400 transition-all duration-300 p-1 rounded-lg"
-                                        href="">
+                                        href="/karyawan/edit/{{ $data->id }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="size-4 text-amber-700">
                                             <path stroke-linecap="round" stroke-linejoin="round"

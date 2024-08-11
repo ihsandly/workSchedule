@@ -9,4 +9,6 @@ Route::get('/dashboard', [KaryawanController::class, "index"]);
 Route::get('/karyawan', [KaryawanController::class, "karyawan"])->name('karyawan');
 Route::get('/karyawan/tambah', [KaryawanController::class, "tambah"]);
 Route::post('/karyawan/tambah', [KaryawanController::class, "store"])->name('tambah_karyawan');
+Route::get('/karyawan/edit/{id}', [KaryawanController::class, "edit"]);
+Route::put('/karyawan/update/{id}', [KaryawanController::class, "update"])->name('update_karyawan');
 Route::get('/karyawan/delete/{id}', [KaryawanController::class, "delete"]);
