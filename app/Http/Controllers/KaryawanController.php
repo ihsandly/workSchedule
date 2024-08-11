@@ -28,8 +28,11 @@ class KaryawanController extends Controller
     {
         return view('home.karyawan-tambah', [
             "title" => "Tambah data karyawan",
+            1
         ]);
     }
+
+    public function store(Request $request) {}
 
     public function delete($id)
     {

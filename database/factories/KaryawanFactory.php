@@ -17,9 +17,11 @@ class KaryawanFactory extends Factory
     public function definition(): array
     {
         return [
+            "nik" => fake()->numberBetween(0, 100),
             "nama_karyawan" => fake()->name(),
-            "posisi" => fake()->sentence(rand(1, 3)),
+            "jabatan" => fake()->sentence(rand(1, 3)),
             "jenis_kelamin" => fake()->randomElement(['laki-laki', 'perempuan']),
+            "email" => fake()->safeEmail(),
         ];
     }
 }
