@@ -10,4 +10,9 @@ class Karyawan extends Model
     use HasFactory;
     protected $table = "karyawan";
     protected $fillable = ["nik", "nama_karyawan", "jabatan", "jenis_kelamin", "email"];
+
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
+    }
 }
