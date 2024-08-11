@@ -30,14 +30,14 @@
                 <input
                     class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 placeholder:text-gray-400 rounded-lg w-full"
                     id="nama_karyawan" name="nama_karyawan" type="text" value="{{ $data['nama_karyawan'] }}"
-                    placeholder="masukkan nama lengkap">
+                    placeholder="ketikkan nama lengkap">
             </div>
 
             <div class="my-2">
                 <label class="ml-1" for="nik">NIK</label>
                 <input
                     class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 placeholder:text-gray-400 rounded-lg w-full"
-                    id="nik" name="nik" type="text" value="{{ $data['nik'] }}" placeholder="masukkan NIK">
+                    id="nik" name="nik" type="text" value="{{ $data['nik'] }}" placeholder="ketikkan NIK">
             </div>
 
             <div class="my-2">
@@ -45,26 +45,22 @@
                 <input
                     class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 placeholder:text-gray-400 rounded-lg w-full"
                     id="jabatan" name="jabatan" type="text" value="{{ $data['jabatan'] }}"
-                    placeholder="masukkan jabatan karyawan">
+                    placeholder="ketikkan jabatan karyawan">
             </div>
 
             <div class="my-2">
-                <label class="ml-1" for="nama_karyawan">Jenis Kelamin</label>
-                <select
-                    class="block focus:outline-blue-300 border border-slate-300 px-2 py-1 w-full rounded-lg text-gray-400"
-                    name="jenis_kelamin" id="jenis_kelamin">
-                    <option disabled selected value="">-- Harap Pilih Jenis
-                        Kelamin --</option>
-                    <option value="laki-laki">laki-laki</option>
-                    <option value="perempuan">perempuan</option>
-                </select>
+                <label class="ml-1" for="jenis_kelamin">Jenis Kelamin</label>
+                <input
+                    class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 placeholder:text-gray-400 rounded-lg w-full"
+                    id="jenis_kelamin" name="jenis_kelamin" type="text" value="{{ $data['jenis_kelamin'] }}"
+                    placeholder="ketikkan jenis kelamin">
             </div>
 
             <div class="my-2">
                 <label class="ml-1" for="email">Email</label>
                 <input
                     class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 rounded-lg w-full placeholder:text-gray-400"
-                    id="email" name="email" type="text" value="{{ $data['email'] }}" placeholder="masukkan email">
+                    id="email" name="email" type="text" value="{{ $data['email'] }}" placeholder="ketikkan email">
             </div>
 
             <button
