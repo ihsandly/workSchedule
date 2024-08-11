@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
     <div class="p-2">
-        <h2 class="mb-2 font-medium">Edit data karyawan</h2>
+        <h2 class="mb-2 font-medium">Tambah Schedule</h2>
 
         @if ($errors->any())
             <div class="flex p-4 mb-4 text-sm text-rose-700 rounded-lg bg-rose-100" role="alert">
@@ -22,49 +22,55 @@
             </div>
         @endif
 
-        <form action="/karyawan/update/{{ $data->id }}" method="POST">
+        <form action="{{ route('tambah_schedule') }}" method="POST">
             @csrf
-            @method('PUT')
+
             <div class="my-2">
-                <label class="ml-1" for="nama_karyawan">Nama Lengkap</label>
+                <label class="ml-1" for="tanggal">Tanggal jadwal</label>
                 <input
                     class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 placeholder:text-gray-400 rounded-lg w-full"
-                    id="nama_karyawan" name="nama_karyawan" type="text" value="{{ $data['nama_karyawan'] }}"
+                    id="tanggal" name="tanggal" type="date" value="{{ old('tanggal') }}"
                     placeholder="ketikkan nama lengkap">
             </div>
 
             <div class="my-2">
-                <label class="ml-1" for="nik">NIK</label>
-                <input
-                    class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 placeholder:text-gray-400 rounded-lg w-full"
-                    id="nik" name="nik" type="text" value="{{ $data['nik'] }}" placeholder="ketikkan NIK">
+                <label class="ml-1" for="karyawan_id">Nama Karyawan</label>
+                <select class="block w-full border focus:outline-blue-300 border-slate-300 px-2 py-2 rounded-lg"
+                    name="karyawan_id" id="karyawan_id">
+                    <option value="" selected disabled>-- Harap Dipilih --</option>
+                    @foreach ($nama_karyawan as $nk)
+                        <option value="{{ $nk->id }}">
+                            {{ $nk->nama_karyawan }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="my-2">
-                <label class="ml-1" for="jabatan">Jabatan</label>
+                <label class="ml-1" for="posisi">Posisi</label>
                 <input
                     class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 placeholder:text-gray-400 rounded-lg w-full"
-                    id="jabatan" name="jabatan" type="text" value="{{ $data['jabatan'] }}"
-                    placeholder="ketikkan jabatan karyawan">
+                    id="posisi" name="posisi" type="text" value="{{ old('posisi') }}" placeholder="ketikkan posisi">
             </div>
 
             <div class="my-2">
-                <label class="ml-1" for="jenis_kelamin">Jenis Kelamin</label>
+                <label class="ml-1" for="jam_masuk">Jam Masuk</label>
                 <input
                     class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 placeholder:text-gray-400 rounded-lg w-full"
-                    id="jenis_kelamin" name="jenis_kelamin" type="text" value="{{ $data['jenis_kelamin'] }}"
-                    placeholder="ketikkan jenis kelamin">
+                    id="jam_masuk" name="jam_masuk" type="text" value="{{ old('jam_masuk') }}"
+                    placeholder="ketikkan jam masuk">
             </div>
 
             <div class="my-2">
-                <label class="ml-1" for="email">Email</label>
+                <label class="ml-1" for="jam_pulang">Jam Pulang</label>
                 <input
-                    class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 rounded-lg w-full placeholder:text-gray-400"
-                    id="email" name="email" type="text" value="{{ $data['email'] }}" placeholder="ketikkan email">
+                    class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 placeholder:text-gray-400 rounded-lg w-full"
+                    id="jam_pulang" name="jam_pulang" type="text" value="{{ old('jam_pulang') }}"
+                    placeholder="ketikkan jam pulang">
             </div>
 
             <button
-                class="px-2 py-1 rounded-lg focus:outline-emerald-300 text-white bg-emerald-400 hover:bg-emerald-500 transition-all duration-300">Update</button>
+                class="px-2 py-1 rounded-lg focus:outline-emerald-300 text-white bg-emerald-400 hover:bg-emerald-500 transition-all duration-300">Submit</button>
         </form>
     </div>
 @endsection

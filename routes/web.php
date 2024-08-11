@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 // route schedule
 Route::get('/', [ScheduleController::class, "index"]);
+Route::get('/tambahschedule', [ScheduleController::class, "tambah"]);
+Route::post('/tambahschedule', [ScheduleController::class, "store"])->name('tambah_schedule');
 Route::get('/schedules', [ScheduleController::class, "sortByDate"])->name('schedules.sortByDate');
 
 // route karyawan
