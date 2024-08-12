@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ScheduleController::class, "index"])->name('schedule');
 Route::get('/tambahschedule', [ScheduleController::class, "tambah"]);
 Route::post('/tambahschedule', [ScheduleController::class, "store"])->name('tambah_schedule');
+Route::get('/schedules/edit/{id}', [ScheduleController::class, "edit"]);
+Route::put('/schedules/update/{id}', [ScheduleController::class, "update"])->name('update_schedule');
 Route::get('/schedules', [ScheduleController::class, "sortByDate"])->name('schedules.sortByDate');
 Route::get('/hapusschedule/{id}', [ScheduleController::class, "delete"]);
 

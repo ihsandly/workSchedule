@@ -49,6 +49,8 @@
                         <td class="font-medium p-2">Tanggal</td>
                         <td class="font-medium p-2">NIK</td>
                         <td class="font-medium p-2">Nama</td>
+                        <td class="font-medium p-2">Jam Masuk</td>
+                        <td class="font-medium p-2">Jam Pulang</td>
                         <td class="font-medium p-2">Posisi</td>
                         <td class="font-medium p-2">Jabatan</td>
                         <td class="font-medium p-2 rounded-tr-lg">Aksi</td>
@@ -61,12 +63,14 @@
                             <td class="p-2">{{ date('l, d F Y', strtotime($item->tanggal)) }}</td>
                             <td class="p-2">{{ $item->karyawan->nik }}</td>
                             <td class="p-2">{{ $item->karyawan->nama_karyawan }}</td>
+                            <td class="p-2">{{ $item->jam_masuk }}</td>
+                            <td class="p-2">{{ $item->jam_pulang }}</td>
                             <td class="p-2">{{ $item->posisi }}</td>
                             <td class="p-2">{{ $item->karyawan->jabatan }}</td>
                             <td class="p-2 rounded-br-lg">
                                 <div class="flex justify-start items-center gap-1.5 w-full">
                                     <a class="bg-amber-200 hover:bg-amber-400 transition-all duration-300 p-1 rounded-lg"
-                                        href="#">
+                                        href="/schedules/edit/{{ $item->id }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="size-4 text-amber-700">
                                             <path stroke-linecap="round" stroke-linejoin="round"
