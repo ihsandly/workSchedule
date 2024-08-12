@@ -77,4 +77,13 @@ class ScheduleController extends Controller
         Schedule::create($data);
         return redirect('/')->with('success', ' Berhasil menambahkan data schedule baru.');
     }
+
+    public function delete($id)
+    {
+        $schedule = Schedule::find($id);
+        $schedule->delete();
+
+        return redirect()->route('schedule')
+            ->with('success', 'Data schedule berhasil dihapus.');
+    }
 }

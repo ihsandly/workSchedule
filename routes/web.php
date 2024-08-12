@@ -5,10 +5,11 @@ use App\Http\Controllers\ScheduleController;
 use Illuminate\Support\Facades\Route;
 
 // route schedule
-Route::get('/', [ScheduleController::class, "index"]);
+Route::get('/', [ScheduleController::class, "index"])->name('schedule');
 Route::get('/tambahschedule', [ScheduleController::class, "tambah"]);
 Route::post('/tambahschedule', [ScheduleController::class, "store"])->name('tambah_schedule');
 Route::get('/schedules', [ScheduleController::class, "sortByDate"])->name('schedules.sortByDate');
+Route::get('/hapusschedule/{id}', [ScheduleController::class, "delete"]);
 
 // route karyawan
 Route::get('/karyawan', [KaryawanController::class, "karyawan"])->name('karyawan');
