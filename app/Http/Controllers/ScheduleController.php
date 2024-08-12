@@ -121,6 +121,16 @@ class ScheduleController extends Controller
             'jam_pulang' => $request->input('jam_pulang'),
         ];
 
+
+        $exists = Schedule::where('karyawan_id', $request->karyawan_id)
+            ->where('tanggal', $request->tanggal)
+            ->where('id', '!=', $id)
+            ->exists();
+
+        if ($exists) {
+            return back()->withErrors(['karyawan_id' => 'Karyawan ini sudah memiliki jadwal pada tanggal yang dipilih.']);
+        }
+
         Schedule::where('id', $id)->update($data);
         return redirect('/')->with('success', ' Berhasil mengubah schedule data.');
     }
