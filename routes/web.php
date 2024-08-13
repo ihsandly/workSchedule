@@ -2,16 +2,38 @@
 
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\SesiController;
 use Illuminate\Support\Facades\Route;
 
+// route sesi
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [SesiController::class, 'index'])->name('login');
+    Route::post('/login', [SesiController::class, 'login']);
+});
+Route::get('/home', function () {
+    return redirect('/');
+});
+
 // route schedule
-Route::get('/', [ScheduleController::class, "index"])->name('schedule');
-Route::get('/tambahschedule', [ScheduleController::class, "tambah"]);
-Route::post('/tambahschedule', [ScheduleController::class, "store"])->name('tambah_schedule');
-Route::get('/schedules/edit/{id}', [ScheduleController::class, "edit"]);
-Route::put('/schedules/update/{id}', [ScheduleController::class, "update"])->name('update_schedule');
-Route::get('/schedules', [ScheduleController::class, "sortByDate"])->name('schedules.sortByDate');
-Route::get('/hapusschedule/{id}', [ScheduleController::class, "delete"]);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', [ScheduleController::class, "index"])->name('schedule')->middleware('userAkses:admin')->middleware('userAkses:admin');
+    Route::get('/tambahschedule', [ScheduleController::class, "tambah"])->middleware('userAkses:admin');
+    Route::post('/tambahschedule', [ScheduleController::class, "store"])->name('tambah_schedule')->middleware('userAkses:admin');
+    Route::get('/schedules/edit/{id}', [ScheduleController::class, "edit"])->middleware('userAkses:admin');
+    Route::put('/schedules/update/{id}', [ScheduleController::class, "update"])->name('update_schedule')->middleware('userAkses:admin');
+    Route::get('/schedules', [ScheduleController::class, "sortByDate"])->name('schedules.sortByDate')->middleware('userAkses:admin');
+    Route::get('/hapusschedule/{id}', [ScheduleController::class, "delete"])->middleware('userAkses:admin');
+
+    // route non admin
+    Route::get('/employee', [SesiController::class, 'nonAdmin'])->middleware('userAkses:non_admin');
+    Route::get('/employee/sort', [SesiController::class, 'sortByDate'])->middleware('userAkses:non_admin')->name('employee.sortByDate');
+
+    // route menu
+    Route::get('/menu', [SesiController::class, 'menu']);
+
+    // route logout
+    Route::get('/logout', [SesiController::class, 'logout']);
+});
 
 // route karyawan
 Route::get('/karyawan', [KaryawanController::class, "karyawan"])->name('karyawan');
