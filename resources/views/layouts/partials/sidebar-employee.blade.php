@@ -11,14 +11,23 @@
                 </svg>
             </span>Jadwal Karyawan</a>
         <a class="hover:bg-slate-300 focus:ring-2 focus:outline-none focus:ring-slate-600 transtion-all duration-300 px-1.5 py-1 rounded-lg flex items-center gap-x-1.5"
-            href="{{ url('/karyawan') }}">
+            href="{{ url('/myschedules') }}">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-4">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                </svg>
+            </span>Jadwal Saya</a>
+        <a class="hover:bg-slate-300 focus:ring-2 focus:outline-none focus:ring-slate-600 transtion-all duration-300 px-1.5 py-1 rounded-lg flex items-center gap-x-1.5"
+            href="#">
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-4">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>
-            </span>Request Jadwal</a>
+            </span>Perubahan Jadwal</a>
         <a class="absolute bottom-[20px] focus:ring-2 focus:outline-none focus:ring-rose-600 right-0 left-0 w-full bg-red-100 hover:bg-red-200 text-red-700 transition-all duration-300 px-1.5 py-1 rounded-lg flex items-center gap-x-1.5"
             href="{{ url('/logout') }}">
             <span>

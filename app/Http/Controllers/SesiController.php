@@ -74,6 +74,22 @@ class SesiController extends Controller
         return view('home.employee', compact('data', 'date', 'offset'));
     }
 
+    public function employees()
+    {
+        // user aktif
+        $user = Auth::user();
+
+        // Ambil data dengan paginasi
+        $itemsPerPage = 20;
+        $data = Schedule::where('karyawan_id', 1)->paginate($itemsPerPage);
+
+        // Hitung offset untuk halaman saat ini
+        $currentPage = $data->currentPage();
+        $offset = ($currentPage - 1) * $itemsPerPage;
+        return view('home.employees', ["data" => $data, 'offset' => $offset]);
+        return dd($user->karyawan_id);
+    }
+
     public function logout()
     {
         Auth::logout();
