@@ -21,7 +21,6 @@ class KaryawanFactory extends Factory
             "nama_karyawan" => fake()->name(),
             "jabatan" => fake()->randomElement(['SM', 'leader', 'crew sertifikasi', 'crew']),
             "jenis_kelamin" => fake()->randomElement(['laki-laki', 'perempuan']),
-            "email" => fake()->safeEmail(),
         ];
     }
 }

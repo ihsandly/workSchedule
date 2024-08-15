@@ -56,12 +56,12 @@
                     placeholder="ketikkan jenis kelamin">
             </div>
 
-            <div class="my-2">
+            {{-- <div class="my-2">
                 <label class="ml-1" for="email">Email</label>
                 <input
                     class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 rounded-lg w-full placeholder:text-gray-400"
                     id="email" name="email" type="text" value="{{ old('email') }}" placeholder="ketikkan email">
-            </div>
+            </div> --}}
 
             <button
                 class="px-2 py-1 rounded-lg focus:outline-emerald-300 text-white bg-emerald-400 hover:bg-emerald-500 transition-all duration-300">Submit</button>

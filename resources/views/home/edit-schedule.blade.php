@@ -39,7 +39,7 @@
                 <input type="hidden" name="karyawan_id" value="{{ $data['karyawan_id'] }}">
                 <input
                     class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 placeholder:text-gray-400 rounded-lg w-full"
-                    disabled id="nama_karyawan" name="nama_karyawan" type="text"
+                    readonly id="nama_karyawan" name="nama_karyawan" type="text"
                     value="{{ $data->karyawan->nama_karyawan }}" placeholder="ketikkan nama lengkap">
             </div>
 

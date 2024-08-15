@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="p-2">
-        <h2 class="mb-2 font-medium">{{ $title }}</h2>
+        <h2 class="mb-2 font-medium">Akun Karyawan</h2>
 
         @if ($message = Session::get('success'))
             <div
@@ -18,7 +18,7 @@
 
         {{-- tambah data --}}
         <a class="bg-blue-400 hover:bg-blue-500 transition-all duration-300 text-white px-2 py-1 rounded-lg text-sm"
-            href="{{ url('/karyawan/tambah') }}">
+            href="{{ url('/akun/tambah') }}">
             Tambah data
         </a>
 
@@ -27,10 +27,10 @@
                 <thead>
                     <tr class="bg-slate-500 text-white">
                         <td class="text-center font-medium p-2 rounded-tl-lg">No</td>
-                        <td class="font-medium p-2">NIK</td>
                         <td class="font-medium p-2">Nama</td>
-                        <td class="font-medium p-2">Jabatan</td>
-                        <td class="font-medium p-2">Jenis Kelamin</td>
+                        <td class="font-medium p-2">NIK</td>
+                        <td class="font-medium p-2">Role</td>
+                        <td class="font-medium p-2">Email</td>
                         <td class="font-medium p-2 rounded-tr-lg">Aksi</td>
                     </tr>
                 </thead>
@@ -38,14 +38,14 @@
                     @forelse ($data_karyawan as $data)
                         <tr class="odd:bg-slate-50 even:bg-slate-200">
                             <td class="text-center p-2 rounded-bl-lg">{{ $offset + $loop->iteration }}</td>
+                            <td class="p-2">{{ $data->name }}</td>
                             <td class="p-2">{{ $data->nik }}</td>
-                            <td class="p-2">{{ $data->nama_karyawan }}</td>
-                            <td class="p-2">{{ $data->jabatan }}</td>
-                            <td class="p-2">{{ $data->jenis_kelamin }}</td>
+                            <td class="p-2">{{ $data->role }}</td>
+                            <td class="p-2">{{ $data->email }}</td>
                             <td class="p-2 rounded-br-lg">
                                 <div class="flex justify-start items-center gap-1.5 w-full">
                                     <a class="bg-amber-200 hover:bg-amber-400 transition-all duration-300 p-1 rounded-lg"
-                                        href="/karyawan/edit/{{ $data->id }}">
+                                        href="/akun/edit/{{ $data->id }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="size-4 text-amber-700">
                                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -54,7 +54,7 @@
                                     </a>
                                     <a onclick="return confirm('Apakah anda yakin?')"
                                         class="bg-rose-200 hover:bg-rose-400 transition-all duration-300 p-1 rounded-lg"
-                                        href="karyawan/delete/{{ $data->id }}">
+                                        href="/akun/delete/{{ $data->id }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                             class="size-4 text-rose-700">
                                             <path fill-rule="evenodd"

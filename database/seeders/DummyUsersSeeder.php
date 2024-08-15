@@ -17,12 +17,14 @@ class DummyUsersSeeder extends Seeder
             [
                 'name' => "Admin",
                 'email' => 'admin@gmail.com',
+                'nik' => '123456',
                 'role' => 'admin',
                 'password' => bcrypt('123456'),
             ],
             [
                 'name' => 'Employee',
                 'email' => 'employee@gmail.com',
+                'nik' => '1234568',
                 'role' => 'non_admin',
                 'password' => bcrypt('123456'),
             ]

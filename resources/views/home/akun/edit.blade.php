@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
     <div class="p-2">
-        <h2 class="mb-2 font-medium">Edit data karyawan</h2>
+        <h2 class="mb-2 font-medium">Edit akun karyawan</h2>
 
         @if ($errors->any())
             <div class="flex p-4 mb-4 text-sm text-rose-700 rounded-lg bg-rose-100" role="alert">
@@ -22,14 +22,14 @@
             </div>
         @endif
 
-        <form action="/karyawan/update/{{ $data->id }}" method="POST">
+        <form action="/akun/update/{{ $data->id }}" method="POST">
             @csrf
             @method('PUT')
             <div class="my-2">
-                <label class="ml-1" for="nama_karyawan">Nama Lengkap</label>
+                <label class="ml-1" for="name">Nama Lengkap</label>
                 <input
                     class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 placeholder:text-gray-400 rounded-lg w-full"
-                    id="nama_karyawan" name="nama_karyawan" type="text" value="{{ $data['nama_karyawan'] }}"
+                    id="name" name="name" type="text" readonly value="{{ $data['name'] }}"
                     placeholder="ketikkan nama lengkap">
             </div>
 
@@ -37,31 +37,35 @@
                 <label class="ml-1" for="nik">NIK</label>
                 <input
                     class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 placeholder:text-gray-400 rounded-lg w-full"
-                    id="nik" name="nik" type="text" value="{{ $data['nik'] }}" placeholder="ketikkan NIK">
+                    id="nik" name="nik" type="text" readonly value="{{ $data['nik'] }}"
+                    placeholder="ketikkan NIK">
             </div>
 
             <div class="my-2">
-                <label class="ml-1" for="jabatan">Jabatan</label>
-                <input
-                    class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 placeholder:text-gray-400 rounded-lg w-full"
-                    id="jabatan" name="jabatan" type="text" value="{{ $data['jabatan'] }}"
-                    placeholder="ketikkan jabatan karyawan">
-            </div>
-
-            <div class="my-2">
-                <label class="ml-1" for="jenis_kelamin">Jenis Kelamin</label>
-                <input
-                    class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 placeholder:text-gray-400 rounded-lg w-full"
-                    id="jenis_kelamin" name="jenis_kelamin" type="text" value="{{ $data['jenis_kelamin'] }}"
-                    placeholder="ketikkan jenis kelamin">
-            </div>
-
-            {{-- <div class="my-2">
                 <label class="ml-1" for="email">Email</label>
                 <input
-                    class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 rounded-lg w-full placeholder:text-gray-400"
-                    id="email" name="email" type="text" value="{{ $data['email'] }}" placeholder="ketikkan email">
-            </div> --}}
+                    class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 placeholder:text-gray-400 rounded-lg w-full"
+                    id="email" name="email" type="text" readonly value="{{ $data['email'] }}"
+                    placeholder="ketikkan email">
+            </div>
+
+            <div class="my-2">
+                <label class="ml-1" for="role">Role</label>
+                <select
+                    class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 placeholder:text-gray-400 rounded-lg w-full"
+                    name="role" id="role">
+                    <option disable selected value="">-- Harap Dipilh --</option>
+                    <option value="non_admin">Non Admin</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+
+            <div class="my-2">
+                <label class="ml-1" for="password">Password</label>
+                <input
+                    class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 placeholder:text-gray-400 rounded-lg w-full"
+                    id="password" name="password" type="password" placeholder="ubah password">
+            </div>
 
             <button
                 class="px-2 py-1 rounded-lg focus:outline-emerald-300 text-white bg-emerald-400 hover:bg-emerald-500 transition-all duration-300">Update</button>
