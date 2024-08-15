@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -88,6 +89,43 @@ class SesiController extends Controller
         $offset = ($currentPage - 1) * $itemsPerPage;
         return view('home.employees', ["data" => $data, 'offset' => $offset]);
         return dd($user->karyawan_id);
+    }
+
+    public function ubahDataAkun()
+    {
+        $data = User::where('id', Auth::user()->id)->first();
+        return view('home.akun-employee.ubahdataakun')->with('data', $data);
+    }
+
+    public function updateDataAkun(Request $request, $id)
+    {
+        $request->validate(
+            [
+                'name' => 'required',
+                'email' => 'required',
+                'nik' => 'required',
+                'role' => 'required',
+                'password' => 'required',
+            ],
+            [
+                'name.required' => 'Nama Lengkap wajib diisi.',
+                'nik.required' => 'NIK wajib diisi.',
+                'role.required' => 'Role wajib diisi.',
+                'email.required' => 'Email wajib diisi.',
+                'password.required' => 'Password wajib diisi.',
+            ]
+        );
+
+        $data = [
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'nik' => $request->input('nik'),
+            'role' => $request->input('role'),
+            'password' => bcrypt($request->input('password')),
+        ];
+
+        User::where('id', Auth::user()->id)->first();
+        return redirect('/ubahdataakun')->with('success', ' Berhasil mengubah data.');
     }
 
     public function logout()

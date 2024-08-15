@@ -28,6 +28,15 @@
                         d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                 </svg>
             </span>Perubahan Jadwal</a>
+        <a class="bg-sky-200 focus:ring-2 focus:outline-none focus:ring-sky-600 transtion-all duration-300 px-1.5 py-1 rounded-lg flex items-center gap-x-1.5"
+            href="{{ url('/ubahdataakun') }}">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-4">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                </svg>
+            </span>Ubah Data Akun</a>
         <a class="absolute bottom-[20px] focus:ring-2 focus:outline-none focus:ring-rose-600 right-0 left-0 w-full bg-red-100 hover:bg-red-200 text-red-700 transition-all duration-300 px-1.5 py-1 rounded-lg flex items-center gap-x-1.5"
             href="{{ url('/logout') }}">
             <span>
