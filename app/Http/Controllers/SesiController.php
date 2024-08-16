@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Karyawan;
 use App\Models\User;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
@@ -77,18 +78,20 @@ class SesiController extends Controller
 
     public function employees()
     {
-        // user aktif
-        $user = Auth::user();
 
         // Ambil data dengan paginasi
         $itemsPerPage = 20;
-        $data = Schedule::where('karyawan_id', 1)->paginate($itemsPerPage);
+
+        $userNik = Auth::user()->nik; // Mendapatkan NIK dari user yang sedang login
+
+        $data = Schedule::whereHas('karyawan', function ($query) use ($userNik) {
+            $query->where('nik', $userNik);
+        })->paginate($itemsPerPage);
 
         // Hitung offset untuk halaman saat ini
         $currentPage = $data->currentPage();
         $offset = ($currentPage - 1) * $itemsPerPage;
         return view('home.employees', ["data" => $data, 'offset' => $offset]);
-        return dd($user->karyawan_id);
     }
 
     public function ubahDataAkun()
@@ -127,6 +130,30 @@ class SesiController extends Controller
         User::where('id', Auth::user()->id)->update($data);
         return redirect('/ubahdataakun')->with('success', ' Berhasil mengubah data.');
     }
+
+    public function employeesSortByDate(Request $request)
+    {
+        // Ambil data dengan paginasi
+        $itemsPerPage = 20;
+
+        // Ambil tanggal dari input
+        $date = $request->input('tanggal');
+
+        // Query data Schedule yang diurutkan berdasarkan tanggal yang dipilih
+        $userNik = Auth::user()->nik; // Mendapatkan NIK dari user yang sedang login
+
+        $data = Schedule::whereHas('karyawan', function ($query) use ($userNik) {
+            $query->where('nik', $userNik);
+        })->where('tanggal', $date)->paginate($itemsPerPage);
+
+        // Hitung offset untuk halaman saat ini
+        $currentPage = $data->currentPage();
+        $offset = ($currentPage - 1) * $itemsPerPage;
+
+        // Kembalikan ke view dengan data yang sudah disortir
+        return view('home.employees', compact('data', 'date', 'offset'));
+    }
+
 
     public function logout()
     {

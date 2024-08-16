@@ -42,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
 
     // route my schedules
     Route::get('/myschedules', [SesiController::class, 'employees'])->middleware('userAkses:non_admin');
+    Route::get('/myschedules/sort', [SesiController::class, 'employeesSortByDate'])->middleware('userAkses:non_admin')->name('myschedules.sortByDate');
 
     // route menu
     Route::get('/menu', [SesiController::class, 'menu']);
