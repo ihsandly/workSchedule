@@ -42,6 +42,8 @@ class KaryawanController extends Controller
                 'nama_karyawan' => 'required',
                 'jabatan' => 'required',
                 'jenis_kelamin' => 'required',
+                'email' => 'required',
+
             ],
             [
                 'nik.required' => 'NIK wajib diisi.',
@@ -50,6 +52,7 @@ class KaryawanController extends Controller
                 'nama_karyawan.required' => 'Nama Karyawan wajib diisi.',
                 'jabatan.required' => 'Jabatan Karyawan wajib diisi.',
                 'jenis_kelamin.required' => 'Jenis Kelamin wajib diisi.',
+                'email.required' => 'Email wajib diisi.'
             ]
         );
 
@@ -58,11 +61,19 @@ class KaryawanController extends Controller
             'nama_karyawan' => $request->input('nama_karyawan'),
             'jabatan' => $request->input('jabatan'),
             'jenis_kelamin' => $request->input('jenis_kelamin'),
+            'email' => $request->input('email'),
         ];
 
 
 
         Karyawan::create($data);
+        User::create([
+            'name' => $request->input('nama_karyawan'),
+            'email' => $request->input('email'),
+            'nik' => $request->input('nik'),
+            'password' => bcrypt('123456'),
+            'role' => 'non_admin',
+        ]);
         return redirect('/karyawan')->with('success', ' Berhasil menambahkan data baru.');
     }
 

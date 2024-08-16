@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nama_karyawan');
             $table->string('jabatan');
             $table->string('jenis_kelamin');
+            $table->string('email');
             $table->timestamps();
         });
     }
