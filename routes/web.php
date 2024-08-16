@@ -38,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
 
     // route ubah data akun
     Route::get('/ubahdataakun', [SesiController::class, 'ubahDataAkun'])->middleware('userAkses:non_admin');
-    Route::put('/ubahdta', [SesiController::class, 'updateDataAkun'])->middleware('userAkses:non_admin')->name('update_dataakun');
+    Route::put('/ubahdata', [SesiController::class, 'updateDataAkun'])->middleware('userAkses:non_admin')->name('update_dataakun');
 
     // route my schedules
     Route::get('/myschedules', [SesiController::class, 'employees'])->middleware('userAkses:non_admin');

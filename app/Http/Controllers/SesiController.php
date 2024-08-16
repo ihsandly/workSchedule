@@ -97,7 +97,7 @@ class SesiController extends Controller
         return view('home.akun-employee.ubahdataakun')->with('data', $data);
     }
 
-    public function updateDataAkun(Request $request, $id)
+    public function updateDataAkun(Request $request)
     {
         $request->validate(
             [
@@ -124,7 +124,7 @@ class SesiController extends Controller
             'password' => bcrypt($request->input('password')),
         ];
 
-        User::where('id', Auth::user()->id)->first();
+        User::where('id', Auth::user()->id)->update($data);
         return redirect('/ubahdataakun')->with('success', ' Berhasil mengubah data.');
     }
 
