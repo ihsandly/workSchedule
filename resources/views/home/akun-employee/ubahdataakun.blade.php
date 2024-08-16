@@ -1,7 +1,7 @@
 @extends('layouts.template-employee')
 @section('content-employee')
     <div class="p-2">
-        <h2 class="mb-2 font-medium">Edit akun saya</h2>
+        <h2 class="mb-2 font-medium">Ubah Data Login</h2>
 
         @if ($errors->any())
             <div class="flex p-4 mb-4 text-sm text-rose-700 rounded-lg bg-rose-100" role="alert">

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="p-2">
-        <h2 class="mb-2 font-medium">Akun Karyawan</h2>
+        <h2 class="mb-2 font-medium">Kelola Akun</h2>
 
         @if ($message = Session::get('success'))
             <div
