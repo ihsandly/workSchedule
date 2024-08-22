@@ -20,7 +20,7 @@ class ScheduleFactory extends Factory
         return [
             "karyawan_id" => Karyawan::factory(),
             "posisi" => fake()->randomElement(['sic', 'mod', 'leader', 'leader/kitchen', 'kitchen', 'kasir', 'lobby']),
-            "tanggal" => fake()->date(),
+            "tanggal" => now(),
             "jam_masuk" => fake()->randomElement(['12', '09', '15', '23', '07', '17' . 'off']),
             "jam_pulang" => fake()->randomElement(['17', '23', '13', '07', '15', '20', '18', 'off']),
         ];

@@ -99,17 +99,15 @@ class ScheduleController extends Controller
                 'karyawan_id' => 'required',
                 'posisi' => 'required',
                 'tanggal' => 'required|date',
-                'jam_masuk' => 'required|max_digits:2',
-                'jam_pulang' => 'required|max_digits:2',
+                'jam_masuk' => 'required',
+                'jam_pulang' => 'required',
             ],
             [
                 'karyawan_id.required' => 'Karyawan wajib diisi.',
                 'posisi.required' => 'Posisi wajib diisi.',
                 'tanggal.required' => 'Tanggal wajib diisi.',
                 'jam_masuk.required' => 'Jam Masuk wajib diisi.',
-                'jam_masuk.max_digits' => 'Jam Masuk maksimal 2 digit.',
                 'jam_pulang.required' => 'Jam Pulang wajib diisi.',
-                'jam_pulang.max_digits' => 'Jam Pulang maksimal 2 digit.',
             ]
         );
 

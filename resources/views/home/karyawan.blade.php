@@ -31,6 +31,7 @@
                         <td class="font-medium p-2">Nama</td>
                         <td class="font-medium p-2">Jabatan</td>
                         <td class="font-medium p-2">Jenis Kelamin</td>
+                        {{-- <td class="font-medium p-2">Email</td> --}}
                         <td class="font-medium p-2 rounded-tr-lg">Aksi</td>
                     </tr>
                 </thead>
@@ -42,6 +43,7 @@
                             <td class="p-2">{{ $data->nama_karyawan }}</td>
                             <td class="p-2">{{ $data->jabatan }}</td>
                             <td class="p-2">{{ $data->jenis_kelamin }}</td>
+                            {{-- <td class="p-2">{{ $data->email }}</td> --}}
                             <td class="p-2 rounded-br-lg">
                                 <div class="flex justify-start items-center gap-1.5 w-full">
                                     <a class="bg-amber-200 hover:bg-amber-400 transition-all duration-300 p-1 rounded-lg"

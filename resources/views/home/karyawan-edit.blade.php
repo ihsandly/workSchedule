@@ -60,7 +60,8 @@
                 <label class="ml-1" for="email">Email</label>
                 <input
                     class="block focus:outline-blue-300 px-2 py-1 border border-slate-300 rounded-lg w-full placeholder:text-gray-400"
-                    id="email" name="email" type="text" value="{{ $data['email'] }}" placeholder="ketikkan email">
+                    id="email" name="email" type="text" value="{{ $data['email'] }}" placeholder="ketikkan email"
+                    disabled>
             </div> --}}
 
             <button
