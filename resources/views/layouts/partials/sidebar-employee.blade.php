@@ -19,7 +19,7 @@
                         d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                 </svg>
             </span>Jadwal Saya</a>
-        <a class="hover:bg-slate-300 focus:ring-2 focus:outline-none focus:ring-slate-600 transtion-all duration-300 px-1.5 py-1 rounded-lg flex items-center gap-x-1.5"
+        {{-- <a class="hover:bg-slate-300 focus:ring-2 focus:outline-none focus:ring-slate-600 transtion-all duration-300 px-1.5 py-1 rounded-lg flex items-center gap-x-1.5"
             href="#">
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -27,7 +27,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
                 </svg>
-            </span>Perubahan Jadwal</a>
+            </span>Perubahan Jadwal</a> --}}
         <a class="bg-sky-200 focus:ring-2 focus:outline-none focus:ring-sky-600 transtion-all duration-300 px-1.5 py-1 rounded-lg flex items-center gap-x-1.5"
             href="{{ url('/ubahdataakun') }}">
             <span>
